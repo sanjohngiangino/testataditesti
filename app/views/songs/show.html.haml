@@ -1,0 +1,35 @@
+%h1 Details about the song #{@song.title}
+
+%ul#details
+	%li
+		Artist:
+		= @song.artist
+	%li
+		Album:
+		= @song.album
+	%li
+		Genre:
+		= @song.genre
+	%li
+		Release date:
+		= @song.release_date
+		
+%h3 Lyrics:
+
+- if @song.canzones.empty?
+	%p
+		No lyrics for this song
+- else
+	%p
+		- @song.canzones.each do |r|
+			= r.testos
+			%br
+      
+#{link_to 'Back to song list',songs_path}
+%br
+#{link_to 'Delete',song_path(@song), :method => :delete}
+#{link_to 'Edit Info',edit_song_path(@song)}
+
+%br
+#{link_to 'Add lyrics',new_song_canzones_path(@song)}
+

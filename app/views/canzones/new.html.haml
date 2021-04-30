@@ -1,0 +1,9 @@
+%h2 Testo canzone
+
+= form_tag song_canzones_path, :method => :post do
+
+ =label :canzone, :testos,'Song Lyrics'
+ =text_area :canzone, :testos
+ 
+ <br/><br/>
+ = submit_tag 'Add lyric'

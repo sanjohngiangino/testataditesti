@@ -1,0 +1,26 @@
+%h1 All songs for user #{session[:user]}
+
+%table#songs
+ %thead
+  %tr
+   %th Song Title
+   %th Artist
+   %th Album
+   %th Genre
+   %th Release Date
+   %th More info
+ %tbody
+  -@all.each do |song|
+   %tr
+    %td= song.title
+    %td= song.artist
+    %td= song.album
+    %td= song.genre
+    %td= song.release_date
+    %td= link_to "Details", song_path(song)
+
+ #{link_to 'Add new song', new_song_path}
+ %br
+ %br
+ = form_tag logout_path, :method => :post do
+  = submit_tag 'Logout'
